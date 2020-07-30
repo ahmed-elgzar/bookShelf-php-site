@@ -1,0 +1,90 @@
+* {
+	font-family: 'Cairo' , sans-serif;
+	padding: 0
+}
+:root {
+	--first-color: #343a40;
+	--second-color: #262b2f;
+}
+a,a:hover{
+	text-decoration: none;
+}
+body {
+	background-color: #343a40eb;
+	font-family: 'Cairo' , sans-serif;
+}
+nav {
+	border-bottom: 1px solid #43494e;
+}
+#side-area{
+	background: var(--first-color);
+	color: #9a9da0;
+	padding: 20px 0; 
+}
+#side-area h4{
+	text-align: center;
+	margin-bottom: 20px;
+}
+#side-area ul{
+	list-style: none;
+	padding-right: 5px;
+}
+#side-area ul li{
+	background: var(--second-color);
+	margin-bottom: 3px;
+	padding: 5px;
+	border-radius: 3px;
+}
+#side-area ul li:hover{
+	background: #9a9da0;
+	margin-bottom: 3px;
+	padding: 5px;
+	border-radius: 3px;
+}
+#side-area ul li a{
+	color: #fff;
+
+}
+#side-area #menu li{
+	background: #0b8469; 
+}
+
+#books{
+	color: #9a9da0;
+	padding: 50px 0;
+	padding-right: 50px;
+	text-align: center; 
+}
+
+#books #post{
+	background: var(--second-color);
+	padding: 3px;
+	padding-bottom: 10px;
+	margin: 10px;
+	border-radius: 5px;
+}
+#books #post img{
+	width: auto;
+	height: 230px;
+	margin-top: 5px;
+}
+#books #post a{
+	padding: 0px 5px;
+	margin: 5px;
+	background-color: #1b1f23;
+	border: 2px solid var(--first-color);
+	border-radius: 5px;
+	color: #fff;
+}
+#books #post a:hover{
+	padding: 0px 5px;
+	margin: 5px;
+	background-color: #9a9da0;
+	border: 2px solid var(--first-color);
+	border-radius: 5px;
+	color: #fff;
+}
+footer{
+	background-color: var(--first-color);
+	text-align: center;
+}
