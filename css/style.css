@@ -87,4 +87,5 @@ nav {
 footer{
 	background-color: var(--first-color);
 	text-align: center;
+	border-top: 1px solid #43494e;
 }
