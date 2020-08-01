@@ -1,19 +1,14 @@
 <?php
+	error_reporting(0);
 	include ("includes/config.php");
 	$categoryName   = $_POST['category'];
 	$addCategory	= $_POST['add'];
+	$id 			= $_GET['id'];
 
-	// add category
-	if (isset($addCategory)) {
-		if(empty($categoryName)) {
-			echo "<div class='alert alert-danger'>" . "حقل التصنيف فارغ" . "</div>";
-		}elseif ($categoryName > 100) {
-			echo "<div calss='alert alert-danger'>" . "عنوان التصنيف كبير جدا" . "</div>";
-		}else {
-			$query = "INSERT INTO catigories(catigoryName) VALUES ('$categoryName')";
-			mysqli_query($con, $query);
-			echo "<div class='alert alert-success'>" . "تمت اضافة تصنيف جديد" . "</div>";
-		}
+	// Delete Category
+	if (isset($id)){
+		$query 	= "DELETE FROM catigories WHERE catID = '$id'";
+		$delete = mysqli_query($con, $query); 
 	}
 ?>
 <!DOCTYPE html>
@@ -31,6 +26,7 @@
 	<!-- start content -->
 	<div class="content">
 		<div class="container-fluid">
+			<!-- start side bar -->
 			<div class="row">
 				<div class="col-md-2" id="side-area">
 					<h4>لوحة التحكم</h4>
@@ -80,23 +76,73 @@
 				</div>
 				<div class="col-md-10" id="main-area">
 					<div class="add-category">
+						<?php
+							//========================
+							//== ** Add category ** ==
+							//========================
+
+							if (isset($addCategory)) {
+								if(empty($categoryName)) {
+									echo "<div class='alert alert-danger'>" . "حقل التصنيف فارغ" . "</div>";
+								}elseif ($categoryName > 100) {
+									echo "<div calss='alert alert-danger'>" . "عنوان التصنيف كبير جدا" . "</div>";
+								}else {
+									$query = "INSERT INTO catigories(catigoryName) VALUES ('$categoryName')";
+									mysqli_query($con, $query);
+									echo "<div class='alert alert-success'>" . "تمت اضافة تصنيف جديد" . "</div>";
+								}
+							}
+						?>
 						<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
 							<div class="form-group">
-								<label for="category">تصنيف جديد</label>
+								<label for="category" style="color: #FFF;">تصنيف جديد</label>
 								<input type="text" name="category" class="form-control">
 							</div>
 							<button class="btn-custom form-control" name="add">إضافة</button>
 						</form>
 					</div>
+					<div class="display-cat-mt-5">
+						<?php
+							//=================================
+							//== ** View Categories Table ** ==
+						 	//=================================
+
+							// * This Table Show All Categories In Database Ordered By Oldest
+
+							if (isset($delete)){
+								echo "<div class='alert alert-success'>تم حذف التصنيف بنجاح</div>";
+							}
+						?>
+						<table class="table table-ordered">
+							<thead>
+								<tr>
+									<th>رقم التصنيف</th>
+									<th>اسم التصنيف</th>
+									<th>تاريخ الاضافة</th>
+									<th>حذف التصنيف</th>
+								</tr>
+							</thead>
+							<?php
+								$query 	= "SELECT * FROM catigories ORDER BY catID DESC";
+								$result = $con->query($query);
+								$numper = 0;
+								while ($row = mysqli_fetch_assoc($result)) {
+									$numper++
+							?>
+							<tbody>
+								<td style="color: #FFF"><?php echo $numper; ?></td>
+								<td style="color: #FFF"><?php echo $row['catigoryName']; ?></td>
+								<td style="color: #FFF"><?php echo $row['catigoryTime']; ?></td>
+								<td style="color: #FFF"><a href="catigories.php?id=<?php echo $row['catID']; ?>"><button type="button" class="btn btn-dark">حذف التصنيف</button></a></td>
+							</tbody>
+							<?php
+								}
+							?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- start footer -->
-		<footer>
-			<a href="#">جميع الحقوق محفوظة 	&copy; 2020</a>
-		</footer>
-	<!--end footer -->
 	<script src="js/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/03757ac844.js"></script>
 	<script src="js/bootstrap.min.js"></script>
