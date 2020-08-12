@@ -57,6 +57,9 @@ body {
 	background-color: var(--first-color)!important;
 	color: #FFF;
 }
+.new-book{
+	margin-top: 30px;
+}
 footer{
 	background-color: var(--first-color);
 	text-align: center;
