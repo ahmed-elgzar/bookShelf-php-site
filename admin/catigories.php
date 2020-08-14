@@ -1,16 +1,20 @@
 <?php
 	error_reporting(0);
-	include ("includes/config.php");
 	include ("includes/header.php");
+	session_start();
 	$categoryName   = $_POST['category'];
 	$addCategory	= $_POST['add'];
-
-	$id 			= $_GET['id'];
-	// Delete Category
-	if (isset($id)){
-		$query 	= "DELETE FROM catigories WHERE catID = '$id'";
-		$delete = mysqli_query($con, $query); 
-	}
+	if(!isset($_SESSION['id'])){
+			echo "<div class='alert alert-danger'>" . "غير مسموح لك بتصفح هذه الصفحة مباشرة" . "</div>";
+			header('REFRESH:2;URL=login.php');
+	}else{
+		include ("includes/sidebar.php");
+		$id 			= $_GET['id'];
+		// Delete Category
+		if (isset($id)){
+			$query 	= "DELETE FROM catigories WHERE catID = '$id'";
+			$delete = mysqli_query($con, $query); 
+		}
 ?>
 
 				<div class="col-md-10" id="main-area">
@@ -84,6 +88,7 @@
 		</div>
 	</div>
 	<?php
+		}
 		include("includes/footer.php");
 	?>
 	

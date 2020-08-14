@@ -1,15 +1,19 @@
 <?php
-	include ("includes/config.php");
 	include ("includes/header.php");
+	session_start();
+	if(!isset($_SESSION['id'])){
+			echo "<div class='alert alert-danger'>" . "غير مسموح لك بتصفح هذه الصفحة مباشرة" . "</div>";
+			header('REFRESH:2;URL=login.php');
+			}else{
+				include ("includes/sidebar.php");
+				if (isset($_GET['id'])){
+				$id = $_GET['id'];
 
-	if (isset($_GET['id'])){
-		$id = $_GET['id'];
-
-		if (isset($id)) {
-			$query 	= "DELETE FROM Books WHERE bookID = '$id'";
-			$delete = mysqli_query($con, $query);
-		}
-	}
+					if (isset($id)) {
+						$query 	= "DELETE FROM Books WHERE bookID = '$id'";
+						$delete = mysqli_query($con, $query);
+					}
+				}
 ?>
 	<div class="col-md-10" id="main-area">
 		<div class="books" style="margin-top: 30px;">
@@ -54,5 +58,6 @@
 		</div>
 	</div>
 <?php
+	}
 	include ("includes/footer.php")
 ?>

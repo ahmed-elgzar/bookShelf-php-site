@@ -1,7 +1,12 @@
 <?php
-	//error_reporting(0);
-	include("includes/config.php");			
+	//error_reporting(0);		
 	include("includes/header.php");
+	session_start();
+	if(!isset($_SESSION['id'])){
+			echo "<div class='alert alert-danger'>" . "غير مسموح لك بتصفح هذه الصفحة مباشرة" . "</div>";
+			header('REFRESH:2;URL=login.php');
+			}else{
+				include ("includes/sidebar.php");
 ?>
  	<div class="col-md-10" id="main-area">
 		<div class="new-book">
@@ -81,5 +86,6 @@
 	</div>
 			
 <?php
+	}
 	include("includes/footer.php");
 ?>
