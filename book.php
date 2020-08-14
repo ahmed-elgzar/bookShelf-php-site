@@ -7,7 +7,13 @@
 	$result = mysqli_query($con, $query);
 	$row	= mysqli_fetch_assoc($result);
 ?>
-
+<style type="text/css">
+	a {
+		color: #FFF;
+	}a:hover{
+		color: gray;
+	}
+</style>
 <div class="book">
 	<div class="row">
 		<div class=".col-12 .col-sm-6 .com-md-8">
@@ -16,7 +22,7 @@
 		<div class="col-6 .col-md-4">
 			<h3><?php echo $row['book_title']; ?></h1>
 			<h4>المؤلف : <?php echo $row['book_author']; ?></h4>
-			<h5>تصنيف الكتاب : <?php echo $row['book_cat']; ?></h5>
+			<h5>تصنيف الكتاب : <a href="category.php?cat=<?php echo $row['book_cat']; ?>"><?php echo $row['book_cat']; ?></a></h5>
 		</div>
 	</div>
 	<h3 style="margin: 20px 0;">عن الكتاب</h3>

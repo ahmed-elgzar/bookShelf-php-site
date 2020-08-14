@@ -19,13 +19,13 @@
 				<div class="collapse navbar-collapse" id="menu">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a href="#" class="nav-link">الرئيسية</a>
+							<a href="index.php" class="nav-link">الرئيسية</a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link">تصنيفات</a>
+							<a href="categories.php" class="nav-link">تصنيفات</a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link">المؤلفون</a>
+							<a href="authors.php" class="nav-link">المؤلفون</a>
 						</li>
 						<li class="nav-item">
 							<a href="#" class="nav-link">تواصل معنا</a>
@@ -46,7 +46,7 @@
 								while ($row = mysqli_fetch_assoc($result)){
 							?>
 							<li>
-								<a href="catigories.php">
+								<a href="category.php?cat=<?php echo $row['catigoryName']; ?>">
 									<span><i class="fas fa-tags"></i></span>
 									<span><?php echo $row['catigoryName']; ?></span>
 								</a>
