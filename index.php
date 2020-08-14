@@ -1,3 +1,6 @@
+<?php
+	include ("admin/includes/config.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,157 +43,40 @@
 					<div class="container-fluid">
 						<h4 >تصنيفات الكتب</h4>
 						<ul>
+							<?php
+								$query = "SELECT catigoryName FROM catigories";
+								$result = $con->query($query);
+								while ($row = mysqli_fetch_assoc($result)){
+							?>
 							<li>
 								<a href="catigories.php">
 									<span><i class="fas fa-tags"></i></span>
-									<span>روايات عربية</span>
+									<span><?php echo $row['catigoryName']; ?></span>
 								</a>
 							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>روايات عالمية</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>شعر عربي</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>شعر عالمي</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>تاريخ و جغرافيا</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>كتب عالمية مترجمة</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>علم نفس و اجتماع</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>فلسفة ومنطق</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>كتب علمية و تقنية</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>كتب الطب و الاحياء</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>كتب متنوعة</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>كتب اسالمية</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>تصوف</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>كتب سياسية</span>
-								</a>
-							</li>
-							<li>
-								<a href="catigories.php">
-									<span><i class="fas fa-tags"></i></span>
-									<span>إقتصاد</span>
-								</a>
-							</li>
+							<?php
+								}
+							?>
 						</ul>	
 					</div>
 			</div>
 				<div class="col-md-9">
 					
 						<div class="row" id="books">
+							<?php
+								$query 	= "SELECT bookID, book_img, book_title, book_author FROM Books";
+								$result = $con->query($query);
+								while ($row = mysqli_fetch_assoc($result)) {
+							?>
 							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
+								<img src="admin/img/<?php echo $row['book_img']; ?>">
+								<h4><?php echo $row['book_title']; ?></h4>
+								<h6><?php echo $row['book_author']; ?></h6>
+								<a href="book.php?id=<?php echo $row['bookID']; ?>">تحميل الكتاب</a>
 							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
-
-							<div class="col-sm-3" id="post">
-								<img src="img/1.jpg">
-								<h4>عنوان الكتاب</h4>
-								<h6>اسم المؤلف</h6>
-								<a href="#">تحميل الكتاب</a>
-							</div>
+							<?php
+								}
+							?>
 						</div>
 					
 				</div>

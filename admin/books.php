@@ -2,12 +2,13 @@
 	include ("includes/config.php");
 	include ("includes/header.php");
 
+	if (isset($_GET['id'])){
+		$id = $_GET['id'];
 
-	$id = $_GET['id'];
-
-	if (isset($id)) {
-		$query 	= "DELETE FROM Books WHERE bookID = '$id'";
-		$delete = mysqli_query($con, $query);
+		if (isset($id)) {
+			$query 	= "DELETE FROM Books WHERE bookID = '$id'";
+			$delete = mysqli_query($con, $query);
+		}
 	}
 ?>
 	<div class="col-md-10" id="main-area">
@@ -24,7 +25,7 @@
 							<th>رقم الكتاب</th>
 							<th>صورة الكتاب</th>
 							<th>عنوان الكتاب</th>
-							<th>الؤلف</th>
+							<th>المؤلف</th>
 							<th>تصنيف الكتاب</th>
 							<th>تاريخ الاضافة</th>
 							<th>حذف الكتالب</th>

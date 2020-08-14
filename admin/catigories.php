@@ -4,8 +4,8 @@
 	include ("includes/header.php");
 	$categoryName   = $_POST['category'];
 	$addCategory	= $_POST['add'];
-	$id 			= $_GET['id'];
 
+	$id 			= $_GET['id'];
 	// Delete Category
 	if (isset($id)){
 		$query 	= "DELETE FROM catigories WHERE catID = '$id'";
@@ -77,6 +77,7 @@
 							<?php
 								}
 							?>
+						</table>
 					</div>
 				</div>
 			</div>

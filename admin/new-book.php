@@ -64,17 +64,17 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="image" style="color: #FFF;">صورة المقال</label>
+					<label for="image" style="color: #FFF;">صورة الكتاب</label>
 					<input type="file" name="bookImg" id="image" class="form-control">
 				</div>
 				<div class="form-group">
-					<label for="book" style="color: #FFF;">صورة المقال</label>
+					<label for="book" style="color: #FFF;">ملف الكتاب</label>
 					<input type="file" name="bookFile" id="book" class="form-control">
 				</div>
 				</div class="form-group">
 					<label for="aboutBook" style="color: #FFF;">نبذة عن الكتاب</label>
 					<textarea id="" cols="30" rows="10" class="form-control ckeditor" name="aboutBook"></textarea>
-					<button class="btn-dark form-control" name="upload" style="margin-top: 10px;">نشر المقال</button>
+					<button class="btn-dark form-control" name="upload" style="margin-top: 10px;">نشر الكتاب</button>
 				</div>
 			</form>
 		</div>

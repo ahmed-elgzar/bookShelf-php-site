@@ -48,7 +48,7 @@
 						</ul>
 
 						<li>
-							<a href="index.php" target="_blank">
+							<a href="../index.php" target="_blank">
 								<span><i class="fas fa-window-restore"></i></span>
 								<span>عرض الموقع</span>
 							</a>
