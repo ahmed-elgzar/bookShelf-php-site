@@ -1,6 +1,6 @@
 * {
 	font-family: 'Cairo' , sans-serif;
-	padding: 0
+	padding: 0;
 }
 :root {
 	--first-color: #343a40;
@@ -24,7 +24,7 @@ nav {
 #side-area{
 	background: var(--first-color);
 	color: #9a9da0;
-	padding: 20px 0; 
+	padding: 20px 10px; 
 }
 #side-area h4{
 	text-align: center;
@@ -54,7 +54,7 @@ nav {
 #books{
 	color: #9a9da0;
 	padding: 50px 0;
-	padding-right: 50px;
+	padding-right: 100px;
 	text-align: center; 
 }
 

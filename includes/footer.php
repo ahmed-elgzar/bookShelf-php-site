@@ -1,4 +1,25 @@
 </div>
+<div class="col-md-3" id="side-area">
+					<div class="container-fluid">
+						<h4 >تصنيفات الكتب</h4>
+						<ul>
+							<?php
+								$query = "SELECT catigoryName FROM catigories";
+								$result = $con->query($query);
+								while ($row = mysqli_fetch_assoc($result)){
+							?>
+							<li>
+								<a href="category.php?cat=<?php echo $row['catigoryName']; ?>">
+									<span><i class="fas fa-tags"></i></span>
+									<span><?php echo $row['catigoryName']; ?></span>
+								</a>
+							</li>
+							<?php
+								}
+							?>
+						</ul>	
+					</div>
+			</div>
 			</div>
 		
 	<!-- end content -->
