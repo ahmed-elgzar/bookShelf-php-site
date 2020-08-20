@@ -30,6 +30,10 @@
 							<a href="#" class="nav-link">تواصل معنا</a>
 						</li>
 					</ul>
+					<form  action="search.php" method="post" class="form-inline">
+    					<input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">
+    					<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> بحث</button>
+  					</form>
 				</div>
 		</nav>
 	<!-- end navbar -->

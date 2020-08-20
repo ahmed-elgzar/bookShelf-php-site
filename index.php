@@ -1,6 +1,7 @@
 <?php
 	include ("admin/includes/config.php");
 	include ("includes/header.php");
+
 ?>
 <div class="row" id="books">
 	<?php
@@ -19,5 +20,5 @@
 	?>
 </div>
 <?php
-	include ("includes/footer.php")
+	include ("includes/footer.php");
 ?>			
